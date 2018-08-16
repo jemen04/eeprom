@@ -1,0 +1,122 @@
+{
+	"input_build": {
+		"dut": {
+			"component_id": 233
+		},
+		"td": {
+			"test_definition_ids": [ 55,33,233 ],
+			"catalog_number": { "id": 3333, "test_params_len": 3432 }
+		}
+	},
+	"test_run": {
+		"comments": ["----------- Help ---------------",
+			"random_seed: any integer or float for the random seed,",
+			"             'null' for each run to be automatically different, ",
+			"              to re-run any run, use the seed of that run (shown at beginning at each run)",
+			"allow_exceptions: true for failed runs to have a chance of simulating an exception, ",
+			"                  false to disable simulating exceptions"],
+		"mode": "random",
+		"pass_pct": 60,
+		"fail_pct": 40,
+		"random_seed": null,
+		"allow_exceptions": false,
+		"min_duration_sec": 1,
+		"max_duration_sec": 3
+	},
+	"dut": {
+		"short_name": "TLA",
+		"serial_number": "asdf",
+		"part_number": "asdf",
+		"revision": "sadf",
+		"children": [ 
+			{
+				"short_name": "Stack",
+				"serial_number": "asdf",
+				"part_number": "asdf",
+				"revision": "sadf",
+				"children": [ 
+					{
+						"short_name": "SSNR",
+						"serial_number": "asdf",
+						"part_number": "asdf",
+						"revision": "sadf"
+					}
+				]
+			},
+			{
+				"short_name": "Core",
+				"serial_number": "asdf",
+				"part_number": "asdf",
+				"revision": "sadf"
+			}		
+		]
+	},
+    "test_sequence":[
+		"Power Check",
+		"CKSS Firmware Check",
+		"Boot Up Time",
+		"Bluetooth Test"
+    ],
+	"td": {
+			"CKSS Firmware Check": {
+				"ckss_fw_version":     "0x10017"
+			},
+			"Boot Up Time": {
+				"max_boot_time":       230,
+				"max_stall_time":      120,
+				"login_prompt":        "whippet login:"
+			},
+			"Power Check": {
+				"rail_tolerance":      0.05,
+				"mfg_margin":          0.005,
+				"settling_time":       3.0
+			},
+			"setpoints": {
+				"Vcc_3v3":         3.3,
+				"Vcc_1v0":         1.0,
+				"Vcc_1v8":         1.8,
+				"Vref":            2.5
+			},
+			"Bluetooth Test": {
+				"force_pass":          false,
+				"bt_addr_file":        "/etc/sentient/data/bluetooth-bdaddr",
+				"scan_timeout":        35
+			},
+			"LED Flash Controller Test": {
+				"pfc_firmware_version":    10
+			}
+		
+	},
+	"cn_data": {
+		"mm3_firmware": {
+			"version": "2.1.0"
+		},
+		"ssn_firmware": {
+			"version": "x.y.z"
+		},
+		"test_parameters": {
+			"blah": "xyz",
+			"customer": "Generic SSN",
+			"mm3_config": [
+				{
+					"param": "config_foo",
+					"value": 2
+				},
+				{
+					"param": "config_bar",
+					"value": 99
+				}
+			],
+			"ssn_config": [
+				{
+					"param": "config_foo",
+					"value": 2
+				},
+				{
+					"param": "config_bar",
+					"value": 99
+				}				
+			]
+		}
+	}
+}

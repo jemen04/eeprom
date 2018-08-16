@@ -1,0 +1,20 @@
+{
+  "td": {
+    "service_config": {},
+    "test_sequence": ["EEPROM_24LC64"],
+    "test_head": "head1",
+    "EEPROM_24LC64": {
+      "rogo_type": "MM3",
+      "_comment": "rogo_type either MM3 or ZM1",
+      "DCR_zm1_ohm": [35, 50],
+      "DCR_mm3_ohm": [2, 4],
+      "L_zm1_uH": [2900, 3500],
+      "L_mm3_uH": [80, 100],
+      "pol_zm1_V": [0.001, 0.030],
+      "pol_mm3_V": [0.01, 0.20],
+      "thermistor_V": [10, 13],
+      "temp_C": [18, 35]
+    }
+
+  }
+}

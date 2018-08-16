@@ -1,0 +1,34 @@
+{
+   "individual_test": {
+      "TEST24LC64": {
+         "time_start": "2018-08-16 00:31:25.679975+00:00",
+         "duration": 0.000604,
+         "test_failures": [],
+         "passed": true,
+         "exception": null,
+         "traceback": null,
+         "time_stop": "2018-08-16 00:31:25.680579+00:00",
+         "exc_msg": null,
+         "test_data": {
+            "test_version": null
+         }
+      }
+   },
+   "summary": {
+      "time_start": "2018-08-16 00:31:25.665510+00:00",
+      "duration": 1.01659,
+      "test_failures": [],
+      "passed": true,
+      "exception": null,
+      "traceback": null,
+      "time_stop": "2018-08-16 00:31:26.682100+00:00",
+      "exc_msg": null,
+      "test_data": {
+         "host_name": "CHANGEME",
+         "host_ip_address": "127.0.1.1",
+         "version_python": "3.4.3",
+         "version_equip_man": null,
+         "version_framework": "1.0"
+      }
+   }
+}

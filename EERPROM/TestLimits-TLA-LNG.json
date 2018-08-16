@@ -1,0 +1,13 @@
+{
+  "td": {
+    "service_config": {},
+    "test_sequence": ["TEST24LC64"],
+    "test_head": "head1",
+    "TEST24LC64": {
+      "dut": "Kraken",
+      "_comment": "rogo_type either MM3 or ZM1"
+    }
+
+  }
+}
+
