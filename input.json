@@ -1,0 +1,38 @@
+{
+  "td": {
+    "service_config": {},
+    "test_sequence": ["TEST24LC64"],
+    "test_head": "head1",
+    "TEST24LC64": {
+      "dut": "Kraken",
+      "bus_address": "0x50",
+      "serial": "0123456789",
+      "revision": "A",
+      "_comment": "Structure for a Kraken",
+      "reserved": {
+	"radio_id":{
+	  "0":"N/A",
+	  "1":"L+G SBR4",
+	  "2":"SSN Series 4"
+		},
+	"radio_sn": "CORRECTSN",
+	"gps_id":{
+	  "0":"N/A",
+	  "1":"ublox NEQ-M8Q"
+		},
+	"control_id":{
+	  "0":"N/A",
+	  "1":"MIC2870",
+	  "2":"Attiny25"
+		},
+	"conduct_led":{
+	  "0":"N/A",
+	  "1":"12"
+		}
+	},
+      "data":{}
+    }
+
+  }
+}
+
