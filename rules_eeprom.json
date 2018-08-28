@@ -2,37 +2,7 @@
   "Device": {
     "Kraken": {
       "bus_address": "0x50",
-      "serial": [10],
-      "revision": [2],
-      "_comment": "Structure for a Kraken",
-      "reserved": {
-	"radio_id":{
-          "size":[4,12,14],
-	  "0":"",
-	  "1":"",
-	  "2":""
-		},
-	"radio_sn": "",
-	"gps_id":{
-          "size":[11,20],
-	  "0":"",
-	  "1":""
-		},
-	"control_id":{
-          "size":[4,12,14],
-	  "0":"",
-	  "1":"",
-	  "2":""
-		},
-	"conduct_led":{
-          "size":[11,20],
-	  "0":"",
-	  "1":""
-		}
-	},
-      "data":{}
     }
-
   }
 }
 
