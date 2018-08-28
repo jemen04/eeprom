@@ -4,7 +4,6 @@
     "test_sequence": ["Program24LC64"],
     "test_head": "head1",
     "Program24LC64": {
-    "bus": "0x50",
     "data":[
       {"serial":"A"
         },
