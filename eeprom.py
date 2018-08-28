@@ -148,66 +148,35 @@ class EEPROM_24LC64():
         return ascii_values
 
 
-class TEST24LC64(mfgtestfram.IndividualTest):
+class Program24LC64(mfgtestfram.IndividualTest):
     name = "EEPROM Test 24LC64"
     test_version = '1.0'
     default_failure_code = 'EEP-100'
-    
 
     def run_test(self):
         self.run_one(run_number=1)
 
     def run_one(self, run_number=1):
-        self.result.passed = self.kraken_eeprom()
+        self.result.passed = self.eeprom_test()
 
-    def kraken_eeprom(self):                                  #Kraken Eeprom Test       
+    def eeprom_test(self):                                  #Kraken Eeprom Test       
+        data = self.limits['data']
+        byte_limit = 32        
 
-        dut = self.limits['dut']                              #identify device
-        rule = self.read_eeprom_rules(dut)                    #
-
-        if dut not in rule['Device']:
-            self.result.add_error_code('KEKE-105')
-            return False
-
-        my_device = rule['Device'][dut]
-        bus_add = my_device['bus_address']                    
-        keywords = list(self.dut_reserved_keys(my_device))
-        t_key = len(keywords)
-        k_size = self.key_2_size(keywords, my_device)
-
-        if self.limits['bus_address'] != bus_add:             #compares read vs static bus address
-            self.result.add_error_code('KEKE-101')
-            return False
-
-        if len(self.limits['reserved'].keys()) != t_key:      #check for amount of key words
-            self.result.add_error_code('KEKE-102')
-            return False
-        elif len(self.limits['reserved'].keys()) == t_key:    #Must contain correct key words
-
-            result = all(elem in keywords for elem in self.limits['reserved'].keys())
-            if result == 0:                                   #Flags if mismatch found
-                self.result.add_error_code('KEKE-103')
-                return False 
-
-        for i in range(len(k_size)):                          #number of keys in dict
-            c_dir = self.limits['reserved'][keywords[i]]      #grabbing keys value pair
-            for j in range(len(k_size[i])):                   #per key in sub-dict
+        my_bus = self.limits['bus']
  
-                if type(c_dir) is dict:                       #executes if dict
-                    value = c_dir.get(str(j))                 #grabs value
- 
-                    if len(value) > k_size[i][j]:             #Value must be less than max limit
-                        self.result.add_error_code('KEKE-104')
-                        return False
-                else:                                         #single value check not more than a
-                    if len(c_dir) > k_size[i][j]:             #32 bytes as that is max
-                        self.result.add_error_code('KEKE-104')
-                        return False
+        for i in range(len(data)):
+            key = list(data[i].keys())
+            val = data[i].get(key.pop())
+            
+            if len(val) > byte_limit:                       #Checks data limit 
+                self.result.add_error_code('KEKE-104')      
+                return False
 
         if len(self.result.test_failures) == 0:
             return True
     
-    def read_eeprom_rules(self, dut):
+    def read_eeprom_rules(self):
         json_file = open('rules_eeprom.json')
         json_str = json_file.read()
         json_data = json.loads(json_str)
@@ -229,7 +198,7 @@ class TEST24LC64(mfgtestfram.IndividualTest):
 if __name__ == '__main__':
 
     runable = mfgtestfram.Runnable()
-    runable.load_available_tests([TEST24LC64])
+    runable.load_available_tests([Program24LC64])
     runable.get_options_cli()
     #runable.start_equip_client()
     runable.initialize()
